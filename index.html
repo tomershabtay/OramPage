@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מאור עם | MaorAm - מיזם אזרחי לעתיד דמוקרטי מתקדם</title>
+    <style>
+        :root {
+            --primary-blue: #0A2540;
+            --secondary-blue: #1E3A8A;
+            --accent-blue: #0284C7;
+            --bg-light: #F8FAFC;
+            --white: #FFFFFF;
+            --text-main: #334155;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #38BDF8, #60A5FA, #93C5FD);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #E2E8F0;
+        }
+
+        .author-tag {
+            margin-top: 15px;
+            font-size: 0.955rem;
+            color: #93C5FD;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: -40px auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        h3 {
+            color: var(--secondary-blue);
+            font-size: 1.25rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        .disclaimer-box {
+            background-color: #EFF6FF;
+            border-right: 4px solid var(--accent-blue);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #1E293B;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card h4 {
+            color: var(--secondary-blue);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">מיזם אזרחי פיתוח עתידי</div>
+        <h1>מאור עם | MaorAm</h1>
+        <p>מחזקים את הקשר בין אזרחי ישראל לרשויות השלטון באמצעות חדשנות טכנולוגית ושקיפות מלאה.</p>
+        <div class="author-tag">נכתב ויוזם על ידי: תומר שבתאי</div>
+    </header>
+
+    <main>
+        <!-- הודעת הבהרה וכתב ויתור -->
+        <div class="disclaimer-box">
+            <strong>הבהרה וכתב ויתור:</strong> אפליקציית "מאור עם | MaorAm" היא מיזם אזרחי, פרטי ועצמאי. האפליקציה אינה מייצגת, אינה ממומנת ואינה משויכת לכנסת ישראל, לממשלת ישראל, למערכת המשפט או לכל גוף ממשלתי או מפלגתי רשמי אחר. כל הנתונים והמידע הפרלמנטרי המוצגים מבוססים על מידע ציבורי רשמי הנגיש לכלל הציבור.
+        </div>
+
+        <!-- חזון ומטרה -->
+        <section class="card">
+            <h2>המטרה והחזון שלנו</h2>
+            <p>
+                במציאות הנוכחית של היום, התחושה היא שהאזרח הפשוט אינו בעל השפעה מספיקה על הנעשה במוסדות השלטון, ושרק באמצעות הפעלת כוח באופנים שונים (כגון מחאות אקטיביות) ניתן להשפיע על מקבלי ההחלטות. גם במצבים אלו, פעמים רבות אין ביטוי אמיתי להלכי הרוח של התושבים, אלא רק לקבוצות מצומצמות.
+            </p>
+            <p>
+                סדרי השלטון בדמוקרטיה נשענים על רצון העם. אנו סבורים שהפרט ראוי להשיג הזדמנות להשפיע באופן אינדיבידואלי, נגיש ואיכותי. לשם כך אנו מפתחים את אפליקציית <strong>מאור עם</strong> – כלי עתידי שינגיש את העשייה השלטונית לציבור הרחב.
+            </p>
+        </section>
+
+        <!-- סממנים עתידיים נבחרים -->
+        <section class="card">
+            <h2>סממני המערכת (פיתוח עתידי)</h2>
+            <p>
+                הפיצ'רים והסממנים הבאים נמצאים בתכנון ועתידים לעלות לאוויר בשלבי הפיתוח השונים של המערכת כדי לממש את מטרות המיזם:
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>1. הגדרת תחומי עניין והתאמה אישית</h4>
+                    <p>המשתמש יוכל להגדיר את תחומי עניינו (כגון עבודה, גיל, אזור מגורים ומאפיינים אישיים). ה-AI יצליב נתונים אלו עם הצעות חוק ופסקי דין ויציג התראות ממוקדות ורלוונטיות לחיי היומיום של הפרט.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>2. ניתוח הצעות חוק קיימות</h4>
+                    <p>פרשנות חכמה ומקיפה מצד הבינה המלאכותית לכל הצעת חוק במאגר הלאומי. הניתוח יכלול תקציר נגיש, סעיפים מרכזיים, ואת האוכלוסיות המושפעות מהחוק, בפורמט מקוצר או מורחב לפי בחירת המשתמש.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>3. לוח שנה לעדכון חקיקה</h4>
+                    <p>הצגת לוח שנה ייעודי המרכז מתי הצעות חוק ותזכירים נכנסים לתוקף. המערכת תבצע חלוקה חכמה בין מסמכים בעלי רלוונטיות גבוהה ישירות למשתמש לבין יתר הפעילות הפרלמנטרית.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>כל הזכויות שמורות לתומר שבתאי | מאור עם | MaorAm &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
