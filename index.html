@@ -14,10 +14,10 @@
             --secondary-blue: #1E3A8A;
             --accent-blue: #0284C7;
             --accent-light: #38BDF8;
-            --bg-light: #F1F5F9;
+            --bg-light: #F8FAFC;
             --white: #FFFFFF;
-            --text-main: #1E293B;
-            --text-muted: #64748B;
+            --text-main: #0F172A;
+            --text-muted: #475569;
             --border-color: #E2E8F0;
         }
 
@@ -28,11 +28,12 @@
             padding: 0;
         }
 
-        /* // הגדרת פונט מערכת נקי ועיצוב רקע משודרג בצבעי כחול כהה ולבן במבנה חד וצלול */
+        /* // תאורת רקע היקפית ואחידה במראה היי-טק עתידני ללא חיתוכים חדים ברקע */
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            /* // מעבר צבעים מובנה וצלול המפריד באופן חד ומרשים בין אזור הכותרת הכהה לרקע הבהיר */
-            background: linear-gradient(180deg, #081A2F 0%, #0A2540 420px, #F1F5F9 420px, #E2E8F0 100%);
+            /* // מעבר צבעים רדיאלי רציף המפזר תאורה רכה מראש העמוד וזורם ברקע אחיד לאורך כל הגלילה */
+            background: radial-gradient(ellipse at 50% 0%, #1E3A8A 0%, #0A2540 40%, #081426 75%, #050C17 100%);
+            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.7;
             min-height: 100vh;
@@ -40,90 +41,78 @@
             flex-direction: column;
         }
 
-        /* // כותרת עליונה שקופה המשתלבת באופן טבעי עם הרקע הכללי */
+        /* // כותרת עליונה שקופה המשתלבת באופן טבעי על גבי רקע התאורה הצפה */
         header {
             background: transparent;
             color: var(--white);
-            padding: 50px 20px 80px 20px;
+            padding: 60px 20px 60px 20px;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        /* // עיטור פסי עומק זוהרים בתחתית אזור ה-Header */
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #38BDF8, #60A5FA, #93C5FD);
-            opacity: 0.8;
         }
 
         /* // עיצוב תגית הקטגוריה העליונה במראה זכוכית עם אנימציית הופעה הדרגתית */
         .badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 6px 20px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            padding: 6px 22px;
             border-radius: 50px;
             font-size: 0.88rem;
             font-weight: 600;
             margin-bottom: 18px;
             letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             color: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             animation: fadeInDown 0.6s ease-out 0.2s both;
         }
 
         /* // הגדרת גודל מוגדל עבור הלוגו הראשי עם אפקט צללית עמוקה ותגובה לריחוף */
         .hero-logo {
-            height: 125px;
+            height: 130px;
             width: auto;
             margin-bottom: 18px;
-            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             animation: fadeInDown 0.8s ease-out;
         }
 
         .hero-logo:hover {
-            transform: scale(1.06);
+            transform: scale(1.07) rotate(-1deg);
         }
 
         /* // כותרת ראשית בולטת המיועדת בלחיצה לפתיחת המודל */
         h1.clickable-title {
-            font-size: 3.1rem;
+            font-size: 3.2rem;
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: #FFFFFF;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            transition: transform 0.2s ease, opacity 0.2s ease;
+            transition: transform 0.25s ease, opacity 0.25s ease;
             user-select: none;
             animation: fadeInDown 0.6s ease-out 0.3s both;
         }
 
         h1.clickable-title:hover {
-            opacity: 0.92;
-            transform: scale(1.02);
+            opacity: 0.95;
+            transform: translateY(-2px) scale(1.01);
         }
 
         /* // עיצוב אייקון המידע העזרי לצד הכותרת */
         .info-icon {
             font-size: 1.3rem;
             opacity: 0.85;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
         }
 
         h1.clickable-title:hover .info-icon {
-            transform: scale(1.2) rotate(10deg);
+            transform: scale(1.25) rotate(12deg);
         }
 
         header p {
@@ -132,16 +121,23 @@
             margin: 0 auto;
             color: #E2E8F0;
             font-weight: 300;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
             animation: fadeIn 0.8s ease-out 0.4s both;
         }
 
-        /* // עיצוב תגית השיוך של היוזם */
+        /* // עיצוב תגית היוצר במראה כפתור זכוכית שקוף ומודגש לקריאות מרבית */
         .author-tag {
-            margin-top: 15px;
-            font-size: 0.95rem;
-            color: #93C5FD;
+            margin-top: 22px;
+            font-size: 0.92rem;
+            color: #F0F9FF;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            padding: 6px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(8px);
             font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             animation: fadeIn 0.8s ease-out 0.5s both;
         }
 
@@ -151,7 +147,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 14px;
-            margin-top: 22px;
+            margin-top: 24px;
             animation: fadeInUp 0.8s ease-out 0.45s both;
         }
 
@@ -162,19 +158,19 @@
             gap: 10px;
             background-color: #25D366;
             color: #FFFFFF !important;
-            padding: 12px 24px;
+            padding: 12px 26px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none !important;
-            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .whatsapp-btn:hover {
             background-color: #20BA5A;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
         }
 
         .whatsapp-btn svg {
@@ -183,29 +179,29 @@
             fill: currentColor;
         }
 
-        /* // הסטת האזור המרכזי כלפי מעלה לחפיפה יוקרתית על גבי הרקע הכהה */
+        /* // מרכז התוכן הראשי המרחף מעל הרקע הכהה במראה אלגנטי */
         main {
-            max-width: 1000px;
-            margin: -35px auto 60px auto;
+            max-width: 980px;
+            margin: 10px auto 60px auto;
             padding: 0 20px;
             position: relative;
             z-index: 10;
             flex: 1;
         }
 
-        /* // עיצוב תיבת ההבהרה המשודרגת עם אייקון מידע מובנה ואנימציית הופעה */
+        /* // עיצוב תיבת ההבהרה במראה כרטיס לבן ונקי עם הגשת מידע קריאה מאוד */
         .disclaimer-box {
             background-color: #FFFFFF;
             border-right: 5px solid var(--accent-blue);
-            padding: 22px 25px;
-            border-radius: 12px;
+            padding: 22px 28px;
+            border-radius: 16px;
             font-size: 0.95rem;
             color: #334155;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            margin-bottom: 28px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: flex-start;
-            gap: 15px;
+            gap: 16px;
             animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
@@ -217,14 +213,14 @@
             margin-top: 2px;
         }
 
-        /* // עיצוב כרטיסיות התוכן הראשיות עם אנימציית כניסה רכה ואפקטי צללית */
+        /* // עיצוב כרטיסיות התוכן הראשיות במראה הייטקיסט נקי, צף וחד */
         .card {
-            background: var(--white);
-            border-radius: 18px;
+            background: #FFFFFF;
+            border-radius: 20px;
             padding: 42px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07);
-            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
@@ -233,7 +229,7 @@
             font-size: 1.85rem;
             margin-bottom: 20px;
             padding-bottom: 12px;
-            border-bottom: 2px solid var(--bg-light);
+            border-bottom: 2px solid #EDF2F7;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -241,34 +237,33 @@
 
         p {
             margin-bottom: 16px;
-            color: #475569;
+            color: #334155;
             font-size: 1.05rem;
         }
 
         /* // רשת הצגת הפיצ'רים העתידיים במבנה רספונסיבי */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 22px;
             margin-top: 30px;
         }
 
-        /* // עיצוב כרטיסיית פיצ'ר בודדת עם הבלטה עליונה צבעונית מעוצבת */
+        /* // עיצוב כרטיסיית פיצ'ר בודדת עם מעברים חלקים ואפקט הרמה עדין בעת ריחוף */
         .feature-card {
             background: #F8FAFC;
-            border-radius: 14px;
+            border-radius: 16px;
             padding: 28px;
             border: 1px solid var(--border-color);
             border-top: 4px solid var(--accent-blue);
             position: relative;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s ease;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-top-color 0.3s ease;
         }
 
-        /* // אפקט הרמה והרחבה עדין בעת ריחוף על כרטיסיית הפיצ'ר */
         .feature-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 18px 35px -10px rgba(10, 37, 64, 0.12);
-            background: var(--white);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.12);
+            background: #FFFFFF;
             border-top-color: var(--accent-light);
         }
 
@@ -277,8 +272,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             background: #E0F2FE;
             color: var(--accent-blue);
             font-weight: 800;
@@ -307,8 +302,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 37, 64, 0.65);
-            backdrop-filter: blur(5px);
+            background: rgba(5, 12, 23, 0.75);
+            backdrop-filter: blur(8px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -319,20 +314,20 @@
         /* // עיצוב תיבת התוכן המרכזית של החלונית הצפה */
         .modal-content {
             background: #FFFFFF;
-            border-radius: 20px;
+            border-radius: 24px;
             max-width: 580px;
             width: 100%;
-            padding: 35px 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            padding: 38px 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-color);
             position: relative;
             text-align: right;
-            animation: slideUp 0.3s ease-out;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .modal-content h3 {
             color: var(--primary-blue);
-            font-size: 1.5rem;
+            font-size: 1.55rem;
             margin-bottom: 18px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--bg-light);
@@ -341,7 +336,7 @@
         .modal-content p {
             color: #334155;
             font-size: 0.98rem;
-            line-height: 1.65;
+            line-height: 1.7;
             margin-bottom: 12px;
         }
 
@@ -352,7 +347,7 @@
         /* // עיצוב כפתור הסגירה X של החלונית הצפה */
         .modal-close-btn {
             position: absolute;
-            top: 18px;
+            top: 20px;
             left: 20px;
             background: #F1F5F9;
             border: none;
@@ -365,22 +360,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
         }
 
         .modal-close-btn:hover {
             background-color: #E2E8F0;
             color: var(--primary-blue);
+            transform: rotate(90deg);
         }
 
-        /* // הגדרת אנימציות הופעה וטעינה חלקות עבור אלמנטים ברחבי העמוד */
+        /* // הגדרת אנימציות הופעה רכות במבנה מתקדם */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
@@ -406,25 +402,26 @@
             }
         }
 
-        /* // עיצוב הפוטר בגוון כחול כהה תואם להדר והכותרת ליצירת מסגרת עיצובית שלמה וחלקות מוחלטת */
+        /* // עיצוב פוטר עדין ושקוף המשתלב באופן חלק עם זרימת צבעי הרקע הרציפה */
         footer {
             text-align: center;
             padding: 35px 20px;
-            color: #94A3B8;
-            font-size: 0.92rem;
-            background: #0A2540;
-            border-top: 3px solid var(--accent-blue);
+            color: #CBD5E1;
+            font-size: 0.95rem;
+            background: rgba(5, 12, 23, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
             margin-top: auto;
         }
 
         /* // התאמה רספונסיבית מקיפה למכשירים ניידים */
         @media (max-width: 768px) {
-            h1.clickable-title { font-size: 2.3rem; }
-            header { padding: 40px 15px 70px 15px; }
-            .hero-logo { height: 95px; }
+            h1.clickable-title { font-size: 2.2rem; }
+            header { padding: 45px 15px 45px 15px; }
+            .hero-logo { height: 100px; }
             .card { padding: 26px; }
             .disclaimer-box { flex-direction: column; gap: 8px; }
-            .modal-content { padding: 25px 20px; }
+            .modal-content { padding: 28px 22px; }
         }
     </style>
 </head>
@@ -471,7 +468,7 @@
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
             </svg>
             <div>
-                <strong>הבהרה וכתב ויתור:</strong> אפליקציית "מאור עם | MaorAm" היא מיזם אזרחי, פרטי ועצמאי. האפליקציה אינה מייצגת, אינה ממומנת ואינה משויכת לככנסת ישראל, לממשלת ישראל, למערכת המשפט או לכל גוף ממשלתי או מפלגתי רשמי אחר. כל הנתונים והמידע הפרלמנטרי המוצגים מבוססים על מידע ציבורי רשמי הנגיש לכלל הציבור.
+                <strong>הבהרה וכתב ויתור:</strong> אפליקציית "מאור עם | MaorAm" היא מיזם אזרחי, פרטי ועצמאי. האפליקציה אינה מייצגת, אינה ממומנת ואינה משויכת לכנסת ישראל, לממשלת ישראל, למערכת המשפט או לכל גוף ממשלתי או מפלגתי רשמי אחר. כל הנתונים והמידע הפרלמנטרי המוצגים מבוססים על מידע ציבורי רשמי הנגיש לכלל הציבור.
             </div>
         </div>
 
@@ -523,7 +520,7 @@
             <h3>מקור השם מאור עם | MaorAm</h3>
             <p>בבחירתו את שם האפליקציה, רצה תומר להרכיבו משם עברי ומשם אנגלי/בינלאומי.</p>
             <p>עקב רצונו של היוצר להעניק ביטוי לרצון העם בפרי עמלו, המילה עם הייתה צריכה להופיע על גלגוליה השונים.</p>
-            <p>במקור, המיזם תוכנן לחלוש על הכנסת ולכן נקרא "ח"כ עם | Hak-Am" (ח"כ = חבר כנסת).</p>
+            <p>במקור, המיזם תוכנן לחלוש על הככנסת ולכן נקרא "ח"כ עם | Hak-Am" (ח"כ = חבר כנסת).</p>
             <p>בהמשך, התכנון המקורי הורחב לכלל רשויות השלטון (המחוקקת, המבצעת והשופטת) ולכן היה צורך בביטוי כללי יותר.</p>
             <p>לאחר בדיקת כדאיותם וזמינותם של שמות רבים באמצעים השונים, הוחלט על השם מאור, אשר משמעותו מקור של אור. כך, התבטאה תקוותו של תומר לשפוך אור על רצונותיהם של אזרחי ישראל והמיזם שייסד נקרא "מאור עם | MaorAm".</p>
         </div>
