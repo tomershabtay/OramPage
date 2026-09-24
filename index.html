@@ -28,15 +28,16 @@
             padding: 0;
         }
 
-        /* // הגדרת פונט מערכת נקי ועיצוב רקע משודרג בצבעי כחול כהה ולבן */
+        /* // הגדרת פונט מערכת נקי ועיצוב רקע משודרג בצבעי כחול כהה ולבן במבנה חד וצלול */
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            /* // מעבר צבעים דינמי מהילה כחולה עמוקה בחלק העליון אל לבן-אפרפר נקי במורד העמוד */
-            background: radial-gradient(circle at 50% -10%, #1E3A8A 0%, #0A2540 35%, #F8FAFC 70%, #E2E8F0 100%);
-            background-attachment: fixed;
+            /* // מעבר צבעים מובנה וצלול המפריד באופן חד ומרשים בין אזור הכותרת הכהה לרקע הבהיר */
+            background: linear-gradient(180deg, #081A2F 0%, #0A2540 420px, #F1F5F9 420px, #E2E8F0 100%);
             color: var(--text-main);
             line-height: 1.7;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* // כותרת עליונה שקופה המשתלבת באופן טבעי עם הרקע הכללי */
@@ -61,7 +62,7 @@
             opacity: 0.8;
         }
 
-        /* // עיצוב תגית הקטגוריה העליונה במראה זכוכית (Glassmorphism) */
+        /* // עיצוב תגית הקטגוריה העליונה במראה זכוכית עם אנימציית הופעה הדרגתית */
         .badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.15);
@@ -75,19 +76,21 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: #FFFFFF;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            animation: fadeInDown 0.6s ease-out 0.2s both;
         }
 
-        /* // הגדרות גודל, צללית ואפקט תנועה במעבר עכבר עבור הלוגו הראשי */
+        /* // הגדרת גודל מוגדל עבור הלוגו הראשי עם אפקט צללית עמוקה ותגובה לריחוף */
         .hero-logo {
-            height: 90px;
+            height: 125px;
             width: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.3));
-            transition: transform 0.3s ease;
+            margin-bottom: 18px;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInDown 0.8s ease-out;
         }
 
         .hero-logo:hover {
-            transform: scale(1.05);
+            transform: scale(1.06);
         }
 
         /* // כותרת ראשית בולטת המיועדת בלחיצה לפתיחת המודל */
@@ -104,6 +107,7 @@
             gap: 12px;
             transition: transform 0.2s ease, opacity 0.2s ease;
             user-select: none;
+            animation: fadeInDown 0.6s ease-out 0.3s both;
         }
 
         h1.clickable-title:hover {
@@ -129,6 +133,7 @@
             color: #E2E8F0;
             font-weight: 300;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out 0.4s both;
         }
 
         /* // עיצוב תגית השיוך של היוזם */
@@ -137,6 +142,7 @@
             font-size: 0.95rem;
             color: #93C5FD;
             font-weight: 500;
+            animation: fadeIn 0.8s ease-out 0.5s both;
         }
 
         /* // סידור כפתורי הוואטסאפ ברשת גמישה וממורכזת */
@@ -146,6 +152,7 @@
             justify-content: center;
             gap: 14px;
             margin-top: 22px;
+            animation: fadeInUp 0.8s ease-out 0.45s both;
         }
 
         /* // עיצוב כפתור וואטסאפ רשמי עם אפקטי צללית מודגשים */
@@ -183,9 +190,10 @@
             padding: 0 20px;
             position: relative;
             z-index: 10;
+            flex: 1;
         }
 
-        /* // עיצוב תיבת ההבהרה המשודרגת עם אייקון מידע מובנה */
+        /* // עיצוב תיבת ההבהרה המשודרגת עם אייקון מידע מובנה ואנימציית הופעה */
         .disclaimer-box {
             background-color: #FFFFFF;
             border-right: 5px solid var(--accent-blue);
@@ -198,6 +206,7 @@
             display: flex;
             align-items: flex-start;
             gap: 15px;
+            animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
         .disclaimer-icon {
@@ -208,7 +217,7 @@
             margin-top: 2px;
         }
 
-        /* // עיצוב כרטיסיות התוכן הראשיות */
+        /* // עיצוב כרטיסיות התוכן הראשיות עם אנימציית כניסה רכה ואפקטי צללית */
         .card {
             background: var(--white);
             border-radius: 18px;
@@ -216,6 +225,7 @@
             margin-bottom: 30px;
             box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07);
             border: 1px solid var(--border-color);
+            animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
         h2 {
@@ -243,7 +253,7 @@
             margin-top: 30px;
         }
 
-        /* // עיצוב כרטיסיית פיצ'ר בודדת עם הבלטה עליונה צבעונית */
+        /* // עיצוב כרטיסיית פיצ'ר בודדת עם הבלטה עליונה צבעונית מעוצבת */
         .feature-card {
             background: #F8FAFC;
             border-radius: 14px;
@@ -251,13 +261,15 @@
             border: 1px solid var(--border-color);
             border-top: 4px solid var(--accent-blue);
             position: relative;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s ease;
         }
 
+        /* // אפקט הרמה והרחבה עדין בעת ריחוף על כרטיסיית הפיצ'ר */
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 18px 35px -10px rgba(10, 37, 64, 0.12);
             background: var(--white);
+            border-top-color: var(--accent-light);
         }
 
         /* // עיצוב תגית המספר המעוצבת בראש כל פיצ'ר */
@@ -361,7 +373,7 @@
             color: var(--primary-blue);
         }
 
-        /* // הגדרת אנימציות הופעה הדרגתיות לחלונית */
+        /* // הגדרת אנימציות הופעה וטעינה חלקות עבור אלמנטים ברחבי העמוד */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -372,20 +384,44 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* // עיצוב הפוטר בגוון כחול כהה תואם להדר והכותרת ליצירת מסגרת עיצובית שלמה וחלקות מוחלטת */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
+            padding: 35px 20px;
+            color: #94A3B8;
             font-size: 0.92rem;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--white);
+            background: #0A2540;
+            border-top: 3px solid var(--accent-blue);
+            margin-top: auto;
         }
 
         /* // התאמה רספונסיבית מקיפה למכשירים ניידים */
         @media (max-width: 768px) {
             h1.clickable-title { font-size: 2.3rem; }
             header { padding: 40px 15px 70px 15px; }
-            .hero-logo { height: 75px; }
+            .hero-logo { height: 95px; }
             .card { padding: 26px; }
             .disclaimer-box { flex-direction: column; gap: 8px; }
             .modal-content { padding: 25px 20px; }
@@ -395,15 +431,15 @@
 <body>
 
     <header>
-        <!-- // תגית קטגוריה עליונה ממוקמת בראש העמוד להבלטת סטטוס המיזם -->
+        <!-- // שילוב לוגו האפליקציה בראש העמוד בגודל מוגדל ובמיקום ראשי -->
+        <img src="/maoram_logo.png?v=2" alt="לוגו מאור עם - MaorAm" class="hero-logo">
+        <br>
+
+        <!-- // תגית קטגוריה ממוקמת מתחת ללוגו להבלטת סטטוס המיזם -->
         <div class="badge">מיזם אזרחי פיתוח עתידי</div>
         <br>
         
-        <!-- // שילוב לוגו האפליקציה בראש העמוד עם אפקט צללית והגדלה ברפרוף -->
-        <img src="/maoram_logo.png?v=2" alt="לוגו מאור עם - MaorAm" class="hero-logo">
-        <br>
-        
-        <!-- // הכותרת הראשי מוגדרת כרכיב לחיץ לפתיחת החלונית הצפה עם אייקון מידע עזרי -->
+        <!-- // הכותרת הראשית מוגדרת כרכיב לחיץ לפתיחת החלונית הצפה עם אייקון מידע עזרי -->
         <h1 class="clickable-title" onclick="openModal()" title="לחץ לקריאת מקור השם">
             מאור עם | MaorAm <span class="info-icon" aria-hidden="true">ℹ️</span>
         </h1>
